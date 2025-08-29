@@ -1,7 +1,9 @@
+import Meals from "./components/Meals"
+
 function App() {
 
   return (
-    <h1>Hellou</h1>
+    <Meals />
   )
 }
 
