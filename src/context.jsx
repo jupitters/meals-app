@@ -4,7 +4,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
 
-  useEffect(()=>{
+  useEffect(async ()=>{
     console.log("data here");
   },[])
 
