@@ -2,6 +2,9 @@ import React, { useContext, useEffect } from 'react'
 
 const AppContext = React.createContext();
 
+const allMealsUls = 'https://www.themealdb.com/api/json/v1/1/search.php?s=a'
+const randomMeakUrl = 'https://www.themealdb.com/api/json/v1/1/random.php'
+
 const AppProvider = ({ children }) => {
 
   const fetchData = async ()=> {
