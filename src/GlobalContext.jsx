@@ -1,9 +1,8 @@
-import React from 'react'
+import { AppContext } from "./context";
+import { useContext } from "react";
 
-const GlobalContext = () => {
-  return (
-    <div>GlobalContext</div>
-  )
+const useGlobalContext = () => {
+  return useContext(AppContext);
 }
 
-export default GlobalContext
+export default useGlobalContext
