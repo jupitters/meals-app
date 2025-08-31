@@ -3,11 +3,10 @@ import React, { useContext, useEffect } from 'react'
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const apiUrl = "https://randomuser.me/api";
 
   const fetchData = async ()=> {
       try {
-        const response = await fetch(apiUrl);
+        const response = await fetch('https://randomuser.me/api');
         const data = response.json();
         console.log(data);
       } catch (error) {
