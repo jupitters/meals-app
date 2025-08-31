@@ -5,8 +5,7 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const apiUrl = "https://randomuser.me/api";
 
-  useEffect(()=>{
-    const fetchData = async ()=> {
+  const fetchData = async ()=> {
       try {
         const response = await fetch(apiUrl);
         const data = response.json();
@@ -16,7 +15,10 @@ const AppProvider = ({ children }) => {
       }
     }
     fetchData();
-  })
+
+  useEffect(()=>{
+    
+  },[])
 
   return <AppContext.Provider  value={{"name":"me", "profession":"developer"}}>
     {children}
