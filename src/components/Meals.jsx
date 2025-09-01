@@ -21,7 +21,7 @@ const Meals = () => {
       {
         meals.map((singleMeal) => {
           const { idMeal, strMeal: title, strMealThumb: image } = singleMeal
-          console.log(singleMeal);
+          // console.log(singleMeal);
           return (
           <article key={ idMeal } className="single-meal">
             <img src={ image } style={{width: '200px'}} className="img" />

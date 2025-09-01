@@ -3,8 +3,9 @@ import { createContext, useEffect, useState } from 'react'
 const AppContext = createContext();
 
 import axios from 'axios';
+// usando https://cors-anywhere.herokuapp.com/ para acessar a api
 const allMealsUrls = 'https://cors-anywhere.herokuapp.com/https://www.themealdb.com/api/json/v1/1/search.php?s='
-// const randomMealUrl = 'https://www.themealdb.com/api/json/v1/1/random.php'
+const randomMealUrl = 'https://cors-anywhere.herokuapp.com/https://www.themealdb.com/api/json/v1/1/random.php'
 
 const AppProvider = ({ children }) => {
   const [meals, setMeals] = useState([]);
@@ -27,13 +28,17 @@ const AppProvider = ({ children }) => {
         console.log(e.response);
       }
       setLoading(false);
-    }
+  }
+
+  const fetchRandomMeal = () => {
+    fetchMeals(randomMealUrl)
+  }
 
   useEffect(()=>{
     fetchMeals(`${allMealsUrls}${searchTerm}`);
   },[searchTerm])
 
-  return <AppContext.Provider  value={{ loading, meals, setSearchTerm }}>
+  return <AppContext.Provider  value={{ loading, meals, setSearchTerm, fetchRandomMeal }}>
     {children}
   </AppContext.Provider>
 }
