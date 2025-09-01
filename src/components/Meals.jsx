@@ -9,7 +9,7 @@ const Meals = () => {
       {
         meals.map((singleMeal) => {
           console.log(singleMeal);
-          return <h4>Single Meal</h4>
+          return <h4 key={singleMeal.idMeal}>Single Meal</h4>
         })
       }
     </section>
