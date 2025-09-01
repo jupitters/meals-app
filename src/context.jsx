@@ -7,11 +7,12 @@ const allMealsUrls = 'https://cors-anywhere.herokuapp.com/https://www.themealdb.
 const randomMealUrl = 'https://www.themealdb.com/api/json/v1/1/random.php'
 
 const AppProvider = ({ children }) => {
+  const [meals, setMeals] = useState([]);
 
   const fetchMeals = async (url)=> {
       try {
-        const {data} = await axios(url);
-        console.log(data);
+        const { data } = await axios.get(url);
+        setMeals(data.meals);
       } catch (e) {
         console.log(e.response);
       }
@@ -21,7 +22,7 @@ const AppProvider = ({ children }) => {
     fetchMeals(allMealsUrls);
   },[])
 
-  return <AppContext.Provider  value={{"name":"me", "profession":"developer"}}>
+  return <AppContext.Provider  value={{ meals }}>
     {children}
   </AppContext.Provider>
 }
