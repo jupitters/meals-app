@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
-const AppContext = React.createContext();
+const AppContext = createContext();
 
 import axios from 'axios';
-const allMealsUrls = 'https://www.themealdb.com/api/json/v1/1/search.php?s=a'
+const allMealsUrls = 'https://cors-anywhere.herokuapp.com/https://www.themealdb.com/api/json/v1/1/search.php?s=a'
 const randomMealUrl = 'https://www.themealdb.com/api/json/v1/1/random.php'
 
 const AppProvider = ({ children }) => {
