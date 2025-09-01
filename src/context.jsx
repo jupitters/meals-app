@@ -8,21 +8,24 @@ const allMealsUrls = 'https://cors-anywhere.herokuapp.com/https://www.themealdb.
 
 const AppProvider = ({ children }) => {
   const [meals, setMeals] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchMeals = async (url)=> {
+    setLoading(true);
       try {
         const { data } = await axios.get(url);
         setMeals(data.meals);
       } catch (e) {
         console.log(e.response);
       }
+      setLoading(false);
     }
 
   useEffect(()=>{
     fetchMeals(allMealsUrls);
   },[])
 
-  return <AppContext.Provider  value={{ meals }}>
+  return <AppContext.Provider  value={{ loading, meals }}>
     {children}
   </AppContext.Provider>
 }
