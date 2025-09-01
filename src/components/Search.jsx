@@ -2,6 +2,7 @@ import { useState } from "react"
 import useGlobalContext from "../GlobalContext"
 
 const Search = () => {
+  const { setSearchTerm } = useGlobalContext();
   const [text, setText] = useState('');
 
   const handleChange = (e) => {
@@ -9,7 +10,10 @@ const Search = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    if(text) {
+      setSearchTerm(text);
+      setText('');
+    }
   }
 
   return (
