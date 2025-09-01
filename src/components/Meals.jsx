@@ -1,4 +1,5 @@
-import { useGlobalContext } from "../context"
+// import { useGlobalContext } from "../context"
+import useGlobalContext from "../GlobalContext";
 
 const Meals = () => {
   const context = useGlobalContext();
