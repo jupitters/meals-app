@@ -4,7 +4,7 @@ const AppContext = createContext();
 
 import axios from 'axios';
 const allMealsUrls = 'https://cors-anywhere.herokuapp.com/https://www.themealdb.com/api/json/v1/1/search.php?s=a'
-const randomMealUrl = 'https://www.themealdb.com/api/json/v1/1/random.php'
+// const randomMealUrl = 'https://www.themealdb.com/api/json/v1/1/random.php'
 
 const AppProvider = ({ children }) => {
   const [meals, setMeals] = useState([]);
