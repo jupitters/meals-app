@@ -1,10 +1,14 @@
 import Meals from "./components/Meals"
+import Search from "./components/Search"
 import './App.css';
 
 function App() {
 
   return (
-    <Meals />
+    <main>
+      <Search />
+      <Meals />
+    </main>
   )
 }
 
