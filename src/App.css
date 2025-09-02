@@ -270,7 +270,7 @@ ul {
   display: grid;
   place-items: center;
   transition: var(--transition);
-  z-index: 100;
+  z-index: 99;
 }
 
 .modal-container{
@@ -308,4 +308,13 @@ ul {
 .close-btn{
   background: var(--red-dark);
   color: var(--white);
+}
+
+.close-icon{
+  position: absolute;
+  right: 18.4rem;
+  width: 3rem;
+  height: 3rem;
+  z-index: 100;
+  cursor: pointer;
 }
