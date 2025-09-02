@@ -3,7 +3,7 @@ import useGlobalContext from "../GlobalContext";
 import { IoIosHeartEmpty } from "react-icons/io";
 
 const Meals = () => {
-  const { loading, meals, selectMeal } = useGlobalContext();
+  const { loading, meals, selectMeal, addToFavorites } = useGlobalContext();
 
   if (loading){
     return <section className="section">
@@ -27,7 +27,7 @@ const Meals = () => {
             <img src={ image } className="img" onClick={() => selectMeal(idMeal)} />
             <footer>
               <h5>{ title }</h5>
-              <button className="like-btn"><IoIosHeartEmpty /></button>
+              <button className="like-btn" onClick={() => addToFavorites(idMeal)}><IoIosHeartEmpty /></button>
             </footer>
           </article>
           )

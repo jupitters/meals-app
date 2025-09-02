@@ -38,7 +38,7 @@ const AppProvider = ({ children }) => {
     fetchMeals(randomMealUrl)
   }
 
-  const selectMeal = (idMeal, favoriteMeal) => {
+  const selectMeal = (idMeal) => {
     let meal;
     meal = meals.find((meal)=> meal.idMeal === idMeal);
 
@@ -72,7 +72,7 @@ const AppProvider = ({ children }) => {
     fetchMeals(`${allMealsUrls}${searchTerm}`);
   },[searchTerm])
 
-  return <AppContext.Provider value={{ loading, meals, setSearchTerm, fetchRandomMeal, showModal, selectMeal, selectedMeal, closeModal }}>
+  return <AppContext.Provider value={{ loading, meals, setSearchTerm, fetchRandomMeal, showModal, selectMeal, selectedMeal, closeModal, addToFavorites, removeFromFavorites }}>
     {children}
   </AppContext.Provider>
 }
