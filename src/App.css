@@ -287,3 +287,7 @@ ul {
   border-top-right-radius: var(--borderRadius);
   border-top-left-radius: var(--borderRadius);
 }
+
+.modal-content{
+  padding: 1rem 1.5rem;
+}
