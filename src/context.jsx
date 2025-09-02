@@ -3,9 +3,10 @@ import { createContext, useEffect, useState } from 'react'
 const AppContext = createContext();
 
 import axios from 'axios';
+import Favorites from './components/Favorites';
 // usando https://cors-anywhere.herokuapp.com/ para acessar a api
-const allMealsUrls = 'https://www.themealdb.com/api/json/v1/1/search.php?s='
-const randomMealUrl = 'https://www.themealdb.com/api/json/v1/1/random.php'
+const allMealsUrls = 'https://cors-anywhere.herokuapp.com/https://www.themealdb.com/api/json/v1/1/search.php?s='
+const randomMealUrl = 'https://cors-anywhere.herokuapp.com/https://www.themealdb.com/api/json/v1/1/random.php'
 
 const AppProvider = ({ children }) => {
   const [meals, setMeals] = useState([]);
@@ -13,6 +14,7 @@ const AppProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [selectedMeal, setSelectedMeal] = useState(null);
+  const [favorites, setFavorites] = useState([]);
 
   const fetchMeals = async (url)=> {
     setLoading(true);
@@ -46,6 +48,14 @@ const AppProvider = ({ children }) => {
 
   const closeModal = () => {
     setShowModal(false);
+  }
+
+  const addToFavorites = (idMeal) => {
+    const meal = meals.find((meal) => meal.idMeal === idMeal);
+    const alreadyFavorite = favorites.find((meal) => meal.idMeal === idMeal);
+    if (alreadyFavorite) return
+    const updatedFavorites = [...favorites, meal];
+    setFavorites(updatedFavorites);
   }
 
   useEffect(()=>{
