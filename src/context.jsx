@@ -58,6 +58,11 @@ const AppProvider = ({ children }) => {
     setFavorites(updatedFavorites);
   }
 
+  const removeFromFavorites = (idMeal) => {
+    const updatedFavorites = favorites.filter((meal)=> meal.idMeal !== idMeal);
+    setFavorites(updatedFavorites);
+  }
+
   useEffect(()=>{
     fetchMeals(allMealsUrls);
   },[])
