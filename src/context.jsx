@@ -72,7 +72,7 @@ const AppProvider = ({ children }) => {
     fetchMeals(`${allMealsUrls}${searchTerm}`);
   },[searchTerm])
 
-  return <AppContext.Provider value={{ loading, meals, setSearchTerm, fetchRandomMeal, showModal, selectMeal, selectedMeal, closeModal, addToFavorites, removeFromFavorites }}>
+  return <AppContext.Provider value={{ loading, meals, setSearchTerm, fetchRandomMeal, showModal, selectMeal, selectedMeal, closeModal, addToFavorites, removeFromFavorites, favorites }}>
     {children}
   </AppContext.Provider>
 }
